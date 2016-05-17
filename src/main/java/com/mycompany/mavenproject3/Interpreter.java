@@ -31,5 +31,7 @@ public class Interpreter {
                 new Cons(new Atom("1"),
                         new Cons(new Atom("2"), new Nil())));
         interp(list);
+        Cons s = new List(new Atom("1"), new Atom("2"), new Atom("3"));
+        interp(s);
     }
 }
