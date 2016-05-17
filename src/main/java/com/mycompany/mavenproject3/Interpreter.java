@@ -15,11 +15,11 @@ public class Interpreter {
         if (sexpression instanceof Atom) {
             Atom atom = (Atom) sexpression;
             System.out.println(atom.getValue());
-        } else if (sexpression instanceof List) {
+        } else if (sexpression instanceof Cons) {
             if (sexpression instanceof Nil) {
                 System.out.println("nil");
             } else {
-                List list = (List) sexpression;
+                Cons list = (Cons) sexpression;
                 interp(list.getHead());
                 interp(list.getTail());
             }
@@ -27,9 +27,9 @@ public class Interpreter {
     }
 
     public static void main(String[] args) {
-        List list = new List(new Atom("0"),
-                new List(new Atom("1"),
-                        new List(new Atom("2"), new Nil())));
+        Cons list = new Cons(new Atom("0"),
+                new Cons(new Atom("1"),
+                        new Cons(new Atom("2"), new Nil())));
         interp(list);
     }
 }

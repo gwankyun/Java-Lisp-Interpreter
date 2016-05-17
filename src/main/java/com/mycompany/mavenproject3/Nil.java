@@ -9,6 +9,6 @@ package com.mycompany.mavenproject3;
  *
  * @author ljqic
  */
-public class Nil extends List {
+public class Nil extends Cons {
     
 }

@@ -12,30 +12,17 @@ import java.util.Arrays;
  *
  * @author ljqic
  */
-public class List extends Sexpression {
+public class Cons extends Sexpression {
 
     private Sexpression head;
-    private List tail;
+    private Cons tail;
 
-    public List(Sexpression head, List tail) {
+    public Cons(Sexpression head, Cons tail) {
         this.head = head;
         this.tail = tail;
     }
 
-    public List() {
-    }
-
-    public List(Sexpression... args) {
-        ArrayList<Sexpression> head = new ArrayList<>();
-        ArrayList<Sexpression> tail = new ArrayList<>();
-        int i = 0;
-        for (Sexpression arg : args) {
-            if (i == 0) {
-                head.add(arg);
-            } else {
-                tail.add(arg);
-            }
-        }
+    public Cons() {
     }
 
     public Sexpression getHead() {
@@ -46,11 +33,11 @@ public class List extends Sexpression {
         this.head = head;
     }
 
-    public List getTail() {
+    public Cons getTail() {
         return tail;
     }
 
-    public void setTail(List tail) {
+    public void setTail(Cons tail) {
         this.tail = tail;
     }
 
