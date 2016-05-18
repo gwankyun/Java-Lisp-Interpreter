@@ -22,10 +22,12 @@ public class List extends Cons {
     public void setValue(Cons value) {
         this.value = value;
     }
-
+    
     public static Cons makeCons(ImmutableList<Sexpression> list) {
         if (list.isEmpty()) {
             return new Nil();
+        } else if (list.size() == 1) {
+            return new Cons(list.get(0), new Nil());
         } else {
             Sexpression head = list.get(0);
             ImmutableList<Sexpression> tail = list.subList(1, list.size() - 1);
@@ -33,8 +35,14 @@ public class List extends Cons {
         }
     }
 
+    public static Cons makeList(Sexpression... args) {
+        ImmutableList<Sexpression> list = ImmutableList.copyOf(args);
+        return makeCons(list);
+    }
+
     public List(Sexpression... args) {
         ImmutableList<Sexpression> list = ImmutableList.copyOf(args);
-        setValue(makeCons(list));
+//        setValue(makeCons(list));
+        this.value = makeCons(list);
     }
 }
